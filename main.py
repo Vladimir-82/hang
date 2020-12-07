@@ -11,6 +11,7 @@ def letter_being_alredy(current_letter, lst):#еще не задействова
 def russian_letter():
     letter_list = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т',
                    'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь', 'ы', 'э', 'ю', 'я']
+
     current_letter=None
     while True:
         if current_letter not in letter_list or len(current_letter)>1:
@@ -26,13 +27,14 @@ def display(HANGMAN_PICS, WORDS):
     show_current_word = '*' * len(current_word)
     print((HANGMAN_PICS[0]))
     print(show_current_word)
-    #being_alredy_list = []
+    being_alredy_list = []
     index_hangman = 1
     Lost = None
 
     while '*' in show_current_word:
         if Lost==True:
             break
+
         current_letter=russian_letter()
         #being_alredy_list.append(current_letter)
 
