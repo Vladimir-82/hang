@@ -1,14 +1,14 @@
 import random
 
 
-def letter_being_alredy(current_letter, lst):
+def letter_being_alredy(current_letter, lst):#еще не задействована
     if current_letter in lst:
         print('Вы уже называли эту букву')
         return False
     else:
         return True
 
-def russian_letter(): #еще не закончена
+def russian_letter():
     letter_list = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т',
                    'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь', 'ы', 'э', 'ю', 'я']
     current_letter=None
@@ -26,13 +26,15 @@ def display(HANGMAN_PICS, WORDS):
     show_current_word = '*' * len(current_word)
     print((HANGMAN_PICS[0]))
     print(show_current_word)
-    being_alredy_list = []
+    #being_alredy_list = []
     index_hangman = 1
+    Lost = None
 
     while '*' in show_current_word:
+        if Lost==True:
+            break
         current_letter=russian_letter()
-        being_alredy_list.append(current_letter)
-
+        #being_alredy_list.append(current_letter)
 
         if current_letter in current_word:
 
@@ -40,6 +42,18 @@ def display(HANGMAN_PICS, WORDS):
                 if current_word[index_letter]==current_letter:
                     show_current_word = show_current_word[0:index_letter:] + current_letter + show_current_word[index_letter + 1::]
                     print(show_current_word)
+                    want_say_word=input('Хотите назвать слово? (Да, Нет):').lower()
+                    if want_say_word=='y' or want_say_word=='yes' or want_say_word=='д' or want_say_word=='да':
+                        word=input('Назовите слово:').lower()
+                        if word==current_word:
+                            show_current_word=word
+                        else:
+                            Lost=True
+                            print('YOU LOST')
+                            print((HANGMAN_PICS[-1]))
+                            print('Неразгаданное слово:', current_word)
+
+
                     if '*' not in show_current_word:
                         print('YOU WON')
 
