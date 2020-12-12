@@ -1,27 +1,28 @@
+
+def deviser(*args):
+    lists=[]
+    for arg in args:
+        lists.append(set([i for i in range(2, arg + 1) if arg % i == 0]))
+    print(lists)
+    print(max(set.intersection(lists[0], lists[1], lists[2])))
+num1=30
+num2=20
+num3=10
+deviser(num1, num2, num3)
+
+
+
+'''
 def deviser(num_1, num_2):
-    x1_numbers = [i for i in range(2, num_1)]
-    x2_numbers = [i for i in range(2, num_2)]
-    devisers_list_1=[]
-    devisers_list_2=[]
+    x1_numbers = [i for i in range(2, num_1+1) if num1 % i == 0]
+    x2_numbers = [i for i in range(2, num_2+1) if num2 % i == 0]
 
-    for i in x1_numbers:
-        if num_1 % i == 0:
-            devisers_list_1.append(i)
-    for i in x2_numbers:
-        if num_2 % i == 0:
-            devisers_list_2.append(i)
-
-    devisers_list_1=sorted(devisers_list_1)
-    devisers_list_2=sorted(devisers_list_2)
-
-    for i in range(len(devisers_list_1)):
-        if devisers_list_1[i] in devisers_list_2:
-            print(devisers_list_1[i])
-        else:
-            i += 1
+    if len(set.intersection(set(x1_numbers), set(x2_numbers))) >= 1:
+        print(max(set(x1_numbers) & set(x2_numbers)))
     else:
         print('No divisers')
 
-num1=12
-num2=8
+num1=30
+num2=3
 deviser(num1, num2)
+'''
