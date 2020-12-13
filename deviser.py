@@ -14,7 +14,7 @@ def deviser(num_list):
             inter.append(i)
 
     if len(inter)>=1:
-        print(f'Общий делитель у чисел: {max(inter)}')
+        print(f'Общий делитель у чисел --> {max(inter)}')
     else:
         print('У этих чисел нет общего делителя!')
 
